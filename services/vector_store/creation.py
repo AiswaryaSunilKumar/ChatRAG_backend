@@ -16,6 +16,7 @@ from sqlalchemy import create_engine, text
 
 from services.llm.config_llm import LLMFactory
 from services.llm.settings import settings
+from langchain_community.document_loaders import UnstructuredPDFLoader
 
 
 def load_pdf(pdf_path: str):
@@ -23,12 +24,22 @@ def load_pdf(pdf_path: str):
     docs = loader.load()
     return docs
 
+# def load_pdf(pdf_path: str):
+#     loader = UnstructuredPDFLoader(
+#         pdf_path, 
+#         mode="elements",
+#         strategy="hi_res" 
+#     )
+    
+#     docs = loader.load()
+#     return docs
+
 
 def chunk_documents(docs):
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=200,
+        chunk_size=4000,
+        chunk_overlap=1000,
         separators=["\n\n", "."],
     )
     chunks = splitter.split_documents(docs)

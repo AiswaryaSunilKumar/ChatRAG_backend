@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text
 from ..llm.config_llm import LLMFactory
 from ..llm.settings import settings
 
-def get_similar_chunks(engine,query,table_name, top_k=5):
+def get_similar_chunks(engine,query,table_name, top_k=10):
     embeddings = LLMFactory.gemini_embeddings()
     query_embedding = embeddings.embed_query(query)
     sql = text(f"""  
@@ -26,4 +26,5 @@ def search_vector_store(query,pdf_path, top_k=5):
     ret_info = ""
     for i in search_result:
         ret_info += "------------------------------------------------ \n\n" + i + "\n\n"
+    print(ret_info)
     return ret_info

@@ -16,7 +16,10 @@ dependencies = [
     "psycopg2>=2.9.11",
     "psycopg2-binary>=2.9.11",
     "pypdf>=6.4.1",
+    "pytesseract>=0.3.13",
     "python-dotenv>=1.2.1",
     "sqlalchemy>=2.0.44",
+    "unstructured-inference>=1.5.2",
+    "unstructured[pdf]>=0.21.5",
     "uvicorn>=0.38.0",
 ]
