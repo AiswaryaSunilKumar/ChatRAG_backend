@@ -8,7 +8,10 @@ def research_assistant(query, pdf_path):
 
     prompt = """ 
     You are a keen assistant and an expert in reading Research papers. 
-    You are given a user query and 5 excerpts from the Research paper which is linked to the user query. Use it to answer the user query.
+    You are given a user query and 10 excerpts from the Research paper which is linked to the user query. Use it to answer the user query.
+
+    If any information is missing in the excerpts, DO NOT MENTION THAT TO THE USER.
+    ALSO, THEN AND ONLY THEN TRY TO ANSWER THE QUERY FROM YOUR INTERNAL KNOWLEDGE BASE
 
     User Query : {query}
 

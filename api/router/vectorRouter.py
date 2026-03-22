@@ -7,5 +7,5 @@ router = APIRouter()
 
 @router.post("/vector", response_model = VectorResponse)
 async def query(request : VectorRequest):
-    return {"table_path" : create_vector_store(request.table_path)}
+    return {"table_path" : create_vector_store(request.table_path, request.docs)}
     

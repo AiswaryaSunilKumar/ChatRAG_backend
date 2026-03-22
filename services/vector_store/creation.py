@@ -105,8 +105,8 @@ def insert_chunks_with_embeddings(engine, chunks, source_file: str, embeddings):
                 },
             )
 
-def create_vector_store(PDF_PATH):
-    docs = load_pdf(PDF_PATH)
+def create_vector_store(PDF_PATH,docs):
+    # docs = load_pdf(PDF_PATH)
     chunks = chunk_documents(docs)
 
     engine = create_engine(settings.SUPABASE_CONNECTION_STRING)
